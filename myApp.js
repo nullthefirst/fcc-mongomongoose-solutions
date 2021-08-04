@@ -115,7 +115,11 @@ const findAndUpdate = (personName, done) => {
 };
 
 const removeById = (personId, done) => {
-  done(null /*, data*/);
+  Person.findByIdAndRemove(personId, function (err, data) {
+    if (err) done(err);
+
+    done(null, data);
+  });
 };
 
 const removeManyPeople = (done) => {
