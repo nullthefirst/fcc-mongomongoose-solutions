@@ -14,6 +14,21 @@ db.once('open', () => {
 
 let Person;
 
+const personSchema = mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  age: {
+    type: Number,
+  },
+  favoriteFoods: {
+    type: [String],
+  },
+});
+
+Person = mongoose.model('Person', personSchema);
+
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
 };
